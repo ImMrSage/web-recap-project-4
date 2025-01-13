@@ -6,7 +6,9 @@ import { uid } from "uid";
 import "./App.css";
 
 function App() {
-  const [color, setColor] = useState(initialColors);
+  const [role, setRole] = useState("");
+  const [hex, setHex] = useState("");
+  const [contrastText, setContrastText] = useState("");
   return (
     <>
       <h1>Theme Creator</h1>

@@ -1,14 +1,24 @@
 import { useState } from "react";
 import "./Form.css";
 
-export default function ColorForm() {
-  const [role, setRole] = useState("");
-  const [hex, setHex] = useState("");
-  const [contrastText, setContrastText] = useState("");
+// export default function ColorForm() {
+//   const [role, setRole] = useState("");
+//   const [hex, setHex] = useState("");
+//   const [contrastText, setContrastText] = useState("");
 
-  function handleSubmit() {
-    event.preventDefault();
-  }
+function handleSubmit({
+  onSubmitColor,
+  initialEntries = {
+    role: "some color",
+    hex: "#123456",
+    contrastText: "FFFFFF",
+  },
+}) {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const data = Object.fromEntries(formData);
+  onSubmitColor(data);
+
   return (
     <form className="form" onSubmit={handleSubmit}>
       <label htmlFor="role">Role</label>
@@ -16,7 +26,7 @@ export default function ColorForm() {
         type="text"
         id="role"
         name="role"
-        value={role}
+        defaultValue={initialEntries.role}
         onChange={() => setRole(event.target.value)}
       />
       <label htmlFor="hex">Hex</label>
