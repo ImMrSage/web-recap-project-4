@@ -23,11 +23,19 @@ function App() {
 
       <ColorForm onSubmitColor={handleColor} />
 
-      {colors.map((color) => {
-        return (
-          <Color key={color.id} color={color} onDelete={handleDeleteColor} />
-        );
-      })}
+      {colors.length > 0 ? (
+        colors.map((color) => {
+          return (
+            <Color key={color.id} color={color} onDelete={handleDeleteColor} />
+          );
+        })
+      ) : (
+        <p>
+          No colors...
+          <br />
+          Start by adding one!
+        </p>
+      )}
     </>
   );
 }
