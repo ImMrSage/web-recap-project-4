@@ -6,10 +6,10 @@ export default function Form({
   initialData = {
     role: "some color",
     hex: "#123456",
-    contrastText: "FFFFFF",
+    contrastText: "#FFFFFF",
   },
 }) {
-  function handleSubmit() {
+  function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
@@ -26,9 +26,9 @@ export default function Form({
         defaultValue={initialData.role}
       />
       <label htmlFor="hex">Hex</label>
-      <ColorInput id="hex" defaultValue={initialData.hex} />
+      <ColorInput id="hex" standardValue={initialData.hex} />
       <label htmlFor="contrastText">Contrast Text</label>
-      <ColorInput id="contrastText" defaultValue={initialData.contrastText} />
+      <ColorInput id="contrastText" standardValue={initialData.contrastText} />
       <button type="submit">Add Color</button>
     </form>
   );
