@@ -14,6 +14,9 @@ export default function Form({
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     onSubmitColor(data);
+
+    event.target.reset();
+    event.target.elements.role.focus();
   }
 
   return (
