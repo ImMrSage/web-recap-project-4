@@ -1,6 +1,6 @@
 import { initialColors } from "./lib/colors";
 import Color from "./Components/Color/Color";
-import ColorForm from "./Components/Form/Form";
+import ColorForm from "./Components/Form/ColorForm";
 import { useState } from "react";
 import { uid } from "uid";
 import "./App.css";
@@ -17,6 +17,10 @@ function App() {
     setColors(colorsToKeep);
   }
 
+  function handleEditColor(id) {
+    return;
+  }
+
   return (
     <>
       <h1>Theme Creator</h1>
@@ -26,7 +30,12 @@ function App() {
       {colors.length > 0 ? (
         colors.map((color) => {
           return (
-            <Color key={color.id} color={color} onDelete={handleDeleteColor} />
+            <Color
+              key={color.id}
+              color={color}
+              onDelete={handleDeleteColor}
+              onEdit={handleEditColor}
+            />
           );
         })
       ) : (

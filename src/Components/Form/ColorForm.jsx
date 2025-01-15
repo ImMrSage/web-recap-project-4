@@ -1,7 +1,7 @@
 import "./Form.css";
 import ColorInput from "../ColorInput/ColorInput";
 
-export default function Form({
+export default function ColorForm({
   onSubmitColor,
   initialData = {
     role: "some color",
